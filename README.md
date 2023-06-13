@@ -17,7 +17,7 @@
 Install using Homebrew:
 
 ```bash
-brew install jamesdobson/gogitmoji/gogitmoji
+brew install oorrwullie/gogitmoji/gogitmoji
 ```
 
 ## Usage
