@@ -13,6 +13,7 @@ builds:
   goarch:
     - amd64
     - 386
+    - arm64
   binary: gitmoji
 archives:
 - replacements:
@@ -21,6 +22,7 @@ archives:
     windows: Windows
     386: i386
     amd64: x86_64
+    arm64: arm64
   format_overrides:
     - goos: windows
       format: zip
@@ -37,17 +39,17 @@ changelog:
 release:
   draft: true
   github:
-    owner: jamesdobson
+    owner: oorrwullie
     name: gogitmoji
 brews:
   - name: gogitmoji
     github:
-      owner: jamesdobson
+      owner: oorrwullie
       name: homebrew-gogitmoji
-    url_template: "https://github.com/jamesdobson/gogitmoji/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/oorrwullie/gogitmoji/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
     commit_author:
       name: gogitmoji
-      email: gogitmoji@softwarepunk.com
+      email: kevin@oorrwullie.com
     folder: Formula
-    homepage: "https://github.com/jamesdobson/gogitmoji"
+    homepage: "https://github.com/oorrwullie/gogitmoji"
     description: "gogitmoji helps you write git commit messages containing gitmoji!"
