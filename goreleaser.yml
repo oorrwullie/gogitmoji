@@ -1,0 +1,54 @@
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - 386
+      - arm64
+    binary: gitmoji
+    ignore:
+      - goos: darwin
+        goarch: 386
+      - goos: linux
+        goarch: 386
+archives:
+  - format: tar.gz
+    # use zip for windows archives
+    format_overrides:
+    - goos: windows
+      format: zip
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+brews:
+  - name: gogitmoji
+    tap:
+      owner: oorrwullie
+      name: homebrew-gogitmoji
+      branch: master
+    url_template: "https://github.com/oorrwullie/gogitmoji/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    commit_author:
+      name: oorrwullie
+      email: payneks@@gmail.com
+    folder: Formula
+    homepage: "https://github.com/oorrwullie/gogitmoji"
+    description: "gogitmoji helps you write git commit messages containing gitmoji!"
