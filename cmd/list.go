@@ -7,7 +7,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"github.com/jamesdobson/gogitmoji/gitmoji"
+	"github.com/oorrwullie/gogitmoji/gitmoji"
 )
 
 // listCmd represents the list command

@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/jamesdobson/gogitmoji/tmpl"
+	"github.com/oorrwullie/gogitmoji/templates"
 )
 
 const (
@@ -56,7 +56,7 @@ func init() {
 
 	commitCmd.Flags().StringP("format", "f", formatAsEmoji, `Emoji format; either "emoji" or "code".`)
 	commitCmd.Flags().BoolP("scope", "p", false, "Enable scope prompt")
-	commitCmd.Flags().StringP("template", "t", tmpl.DefaultTemplateName, `Commit template name.`)
+	commitCmd.Flags().StringP("template", "t", templates.DefaultTemplateName, `Commit template name.`)
 
 	err = viper.BindPFlag(formatSetting, commitCmd.Flags().Lookup("format"))
 	if err != nil {
@@ -75,13 +75,13 @@ func init() {
 }
 
 func commit() {
-	templates := viper.GetStringMap("templates")
+	ts := viper.GetStringMap("ts")
 	t := viper.GetString(templateSetting)
 
-	tmpl.LoadTemplates(templates)
+	templates.LoadTemplates(ts)
 
-	if tpl, ok := tmpl.TemplateLookup[t]; ok {
-		tmpl.RunTemplateCommand(tpl)
+	if tpl, ok := templates.TemplateLookup[t]; ok {
+		templates.RunTemplateCommand(tpl)
 		fmt.Printf("\ngogitmoji done.\n")
 	} else {
 		log.Fatalf("Unknown commit template: \"%s\"\n", t)
@@ -89,13 +89,13 @@ func commit() {
 }
 
 func do(args []string) {
-	templates := viper.GetStringMap("templates")
+	ts := viper.GetStringMap("ts")
 	t := viper.GetString(templateSetting)
 
-	tmpl.LoadTemplates(templates)
+	templates.LoadTemplates(ts)
 
-	if tpl, ok := tmpl.TemplateLookup[t]; ok {
-		msg := tmpl.GetTemplateMessage(tpl)
+	if tpl, ok := templates.TemplateLookup[t]; ok {
+		msg := templates.GetTemplateMessage(tpl)
 		f, err := os.OpenFile(args[0], os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0600)
 
 		if err != nil {

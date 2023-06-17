@@ -1,4 +1,4 @@
-package tmpl
+package templates
 
 var gitmojiCommandTemplateName = "gitmoji"
 var gitmojiCommandTemplate = CommandTemplate{

@@ -2,11 +2,10 @@
 
 [Gitmoji](https://gitmoji.carloscuesta.me/) helper written with ❤️ in Go. Inspired by [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli).
 
-[![Build Status](https://travis-ci.org/jamesdobson/gogitmoji.svg?branch=master)](https://travis-ci.org/jamesdobson/gogitmoji)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jamesdobson/gogitmoji)](https://goreportcard.com/report/github.com/jamesdobson/gogitmoji)
-[![Coverage Status](https://coveralls.io/repos/github/jamesdobson/gogitmoji/badge.svg?branch=master)](https://coveralls.io/github/jamesdobson/gogitmoji?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/oorrwullie/gogitmoji)](https://goreportcard.com/report/github.com/oorrwullie/gogitmoji)
+[![Coverage Status](https://coveralls.io/repos/github/oorrwullie/gogitmoji/badge.svg?branch=main)](https://coveralls.io/github/oorrwullie/gogitmoji?branch=main)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/386deea133c0488a88a04b3bb1c44244)](https://www.codacy.com/manual/jamesdobson/gogitmoji?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jamesdobson/gogitmoji&amp;utm_campaign=Badge_Grade)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjamesdobson%2Fgogitmoji.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjamesdobson%2Fgogitmoji?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Foorrwullie%2Fgogitmoji.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Foorrwullie%2Fgogitmoji?ref=badge_shield)
 
 [![asciicast](https://asciinema.org/a/321491.svg)](https://asciinema.org/a/321491)
 
@@ -231,14 +230,14 @@ This example prompts the user to enter their name, and then echoes it back
 to them as a polite greeting:
 
 ```console
-jamesdobson@MacBook-Pro gitmoji % gitmoji commit -t example
-Using config file: /Users/jamesdobson/.gitmoji/config.yaml
-✔ Enter your name: James
-Going to execute: echo "Hello, James, I'm pleased to meet you."
+oorrwullie@MacBook-Pro gitmoji % gitmoji commit -t example
+Using config file: /Users/oorrwullie/.gitmoji/config.yaml
+✔ Enter your name: Oorrwullie
+Going to execute: echo "Hello, Oorrwullie, I'm pleased to meet you."
 
 Execute: y
 Executing...
-Hello, James, I'm pleased to meet you.
+Hello, Oorrwullie, I'm pleased to meet you.
 
 gogitmoji done.
 ```
@@ -358,8 +357,8 @@ templates:
 
 ## License
 
-Licensed under the [MIT](https://github.com/jamesdobson/gogitmoji/blob/master/LICENSE) license.
+Licensed under the [MIT](https://github.com/oorrwullie/gogitmoji/blob/master/LICENSE) license.
 
 The gitmoji database is from [Gitmoji](https://gitmoji.carloscuesta.me/).
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjamesdobson%2Fgogitmoji.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjamesdobson%2Fgogitmoji?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Foorrwullie%2Fgogitmoji.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Foorrwullie%2Fgogitmoji?ref=badge_large)
