@@ -1,4 +1,4 @@
-module github.com/jamesdobson/gogitmoji
+module github.com/oorrwullie/gogitmoji
 
 go 1.14
 

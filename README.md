@@ -231,14 +231,14 @@ This example prompts the user to enter their name, and then echoes it back
 to them as a polite greeting:
 
 ```console
-jamesdobson@MacBook-Pro gitmoji % gitmoji commit -t example
-Using config file: /Users/jamesdobson/.gitmoji/config.yaml
-✔ Enter your name: James
-Going to execute: echo "Hello, James, I'm pleased to meet you."
+oorrwullie@MacBook-Pro gitmoji % gitmoji commit -t example
+Using config file: /Users/oorrwullie/.gitmoji/config.yaml
+✔ Enter your name: Oorrwullie
+Going to execute: echo "Hello, Oorrwullie, I'm pleased to meet you."
 
 Execute: y
 Executing...
-Hello, James, I'm pleased to meet you.
+Hello, Oorrwullie, I'm pleased to meet you.
 
 gogitmoji done.
 ```

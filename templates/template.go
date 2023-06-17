@@ -1,4 +1,4 @@
-package tmpl
+package templates
 
 import (
 	"fmt"
@@ -9,9 +9,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/jamesdobson/gogitmoji/gitmoji"
 	"github.com/manifoldco/promptui"
 	"github.com/mitchellh/mapstructure"
+	"github.com/oorrwullie/gogitmoji/gitmoji"
 	"github.com/spf13/viper"
 )
 
@@ -48,8 +48,8 @@ var DefaultTemplateName = gitmojiCommandTemplateName
 
 // LoadTemplates reads a map of template names to basic data types and populates
 // TemplateLookup with the result.
-func LoadTemplates(templates map[string]interface{}) {
-	for name, t := range templates {
+func LoadTemplates(ts map[string]interface{}) {
+	for name, t := range ts {
 		var result CommandTemplate
 
 		err := mapstructure.Decode(t, &result)
