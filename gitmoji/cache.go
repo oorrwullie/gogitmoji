@@ -48,7 +48,7 @@ func UpdateCache() error {
 	homedir, err := os.UserHomeDir()
 
 	if err != nil {
-		return fmt.Errorf("Cannot determine home directory: %v", err)
+		return fmt.Errorf("cannot determine home directory: %v", err)
 	}
 
 	cacheFile := filepath.Clean(path.Join(homedir, GitmojiDirName, GitmojiFileName))
@@ -58,7 +58,7 @@ func UpdateCache() error {
 
 	if err != nil {
 		if !os.IsNotExist(err) {
-			return fmt.Errorf("Unable to read local gitmoji cache: %v", err)
+			return fmt.Errorf("unable to read local gitmoji cache: %v", err)
 		}
 
 		currentContent = []byte{}
@@ -68,7 +68,7 @@ func UpdateCache() error {
 	updatedContent, err := download(GitmojiURL)
 
 	if err != nil {
-		return fmt.Errorf("Cannot fetch latest gitmoji: %v", err)
+		return fmt.Errorf("cannot fetch latest gitmoji: %v", err)
 	}
 
 	// Compare
@@ -76,7 +76,7 @@ func UpdateCache() error {
 		err = writeCache(cacheFile, updatedContent)
 
 		if err != nil {
-			return fmt.Errorf("Unable to write local gitmoji cache: %v", err)
+			return fmt.Errorf("unable to write local gitmoji cache: %v", err)
 		}
 
 		fmt.Println("List of gitmoji updated! 🎉")
@@ -92,7 +92,7 @@ func NewCache() (Cache, error) {
 	homedir, err := os.UserHomeDir()
 
 	if err != nil {
-		return Cache{}, fmt.Errorf("Cannot determine home directory: %v", err)
+		return Cache{}, fmt.Errorf("cannot determine home directory: %v", err)
 	}
 
 	cacheFile := path.Join(homedir, GitmojiDirName, GitmojiFileName)
