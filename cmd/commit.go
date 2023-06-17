@@ -96,7 +96,7 @@ func do(args []string) {
 
 	if tpl, ok := tmpl.TemplateLookup[t]; ok {
 		msg := tmpl.GetTemplateMessage(tpl)
-		f, err := os.OpenFile(args[0], os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+		f, err := os.OpenFile(args[0], os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0600)
 
 		if err != nil {
 			log.Fatalf("Error opening commit message file: %v\n", err)

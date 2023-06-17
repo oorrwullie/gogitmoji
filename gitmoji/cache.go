@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"path/filepath"
 )
 
 // GitmojiURL is the address from which to download the list of gitmoji.
@@ -50,7 +51,7 @@ func UpdateCache() error {
 		return fmt.Errorf("Cannot determine home directory: %v", err)
 	}
 
-	cacheFile := path.Join(homedir, GitmojiDirName, GitmojiFileName)
+	cacheFile := filepath.Clean(path.Join(homedir, GitmojiDirName, GitmojiFileName))
 
 	// Get current list
 	currentContent, err := ioutil.ReadFile(cacheFile)
@@ -117,35 +118,35 @@ func download(url string) ([]byte, error) {
 	r, err := http.Get(url)
 
 	if err != nil {
-		return nil, fmt.Errorf("Unable to download gitmoji list (from %s): %v", url, err)
+		return nil, fmt.Errorf("unable to download gitmoji list (from %s): %v", url, err)
 	}
 
 	defer r.Body.Close()
 
 	if r.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("Unable to download gitmoji list (from %s): %v", url, r.Status)
+		return nil, fmt.Errorf("unable to download gitmoji list (from %s): %v", url, r.Status)
 	}
 
 	body, err := ioutil.ReadAll(r.Body)
 
 	if err != nil {
-		return nil, fmt.Errorf("Unable to download gitmoji list: %v", err)
+		return nil, fmt.Errorf("unable to download gitmoji list: %v", err)
 	}
 
 	return body, nil
 }
 
 func writeCache(cacheFile string, content []byte) error {
-	err := os.MkdirAll(path.Dir(cacheFile), 0755)
+	err := os.MkdirAll(path.Dir(cacheFile), 0750)
 
 	if err != nil {
-		return fmt.Errorf("Unable to create gitmoji cache directory: %v", err)
+		return fmt.Errorf("unable to create gitmoji cache directory: %v", err)
 	}
 
-	err = ioutil.WriteFile(cacheFile, content, 0644)
+	err = ioutil.WriteFile(cacheFile, content, 0600)
 
 	if err != nil {
-		return fmt.Errorf("Unable to write gitmoji cache: %v", err)
+		return fmt.Errorf("unable to write gitmoji cache: %v", err)
 	}
 
 	return nil
@@ -174,7 +175,7 @@ func (cache *Cache) GetGitmoji() ([]Gitmoji, error) {
 				return nil, err
 			}
 		} else {
-			return nil, fmt.Errorf("Unable to read gitmoji cache: %v", err)
+			return nil, fmt.Errorf("unable to read gitmoji cache: %v", err)
 		}
 	}
 
@@ -182,7 +183,7 @@ func (cache *Cache) GetGitmoji() ([]Gitmoji, error) {
 	err = json.Unmarshal(content, &container)
 
 	if err != nil {
-		return nil, fmt.Errorf("Cannot process gitmoji list; perhaps the file %v is corrupted? Underlying error: %v", cache.CacheFile, err)
+		return nil, fmt.Errorf("cannot process gitmoji list; perhaps the file %v is corrupted? Underlying error: %v", cache.CacheFile, err)
 	}
 
 	cache.gitmoji = container.Gitmoji
