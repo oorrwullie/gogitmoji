@@ -1,4 +1,4 @@
-package tmpl
+package templates
 
 import (
 	"fmt"
@@ -9,9 +9,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/jamesdobson/gogitmoji/gitmoji"
 	"github.com/manifoldco/promptui"
 	"github.com/mitchellh/mapstructure"
+	"github.com/oorrwullie/gogitmoji/gitmoji"
 	"github.com/spf13/viper"
 )
 

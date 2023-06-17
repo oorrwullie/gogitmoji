@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/jamesdobson/gogitmoji/tmpl"
 	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -32,9 +31,9 @@ func init() {
 
 func export(templateName string) {
 	templates := viper.GetStringMap("templates")
-	tmpl.LoadTemplates(templates)
+	templates.LoadTemplates(templates)
 
-	t, ok := tmpl.TemplateLookup[templateName]
+	t, ok := templates.TemplateLookup[templateName]
 
 	if !ok {
 		log.Fatalf("\nUnknown commit template: \"%s\"\n\n", templateName)

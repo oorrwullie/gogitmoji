@@ -1,4 +1,4 @@
-package tmpl
+package templates
 
 var conventionalCommandTemplateName = "conventional"
 var conventionalCommandTemplate = CommandTemplate{
